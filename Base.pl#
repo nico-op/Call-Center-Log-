@@ -1,0 +1,14 @@
+%Base de datos sobre
+% Causas por la que la computadora no tiene acceso a internet 
+causa('- Su computadora no se encuentra conectada a la red wifi.').
+causa('- El modem no funciona.').
+causa('- El cable del internet no está conectado a su computadora.').
+causa('- El cable de red está dañado.').
+causa('- Cortes de electricidad en la zona por lo que se cae el internet .').
+causa('- Interrupción del servicio en la zona').
+causa('- El antivirus puede estar bloqueando el acceso a internet').
+causa('- La dirección IP o el DNS pueden estar mal configurados.').
+causa('- No tiene instalados los drivers wifi instalados.').
+causa('- El adaptador de red de la computadora no funciona.').
+causa('- La tarjeta de red está dañada. ').
+
