@@ -10,7 +10,17 @@ saludos([buenos,días]).
 saludos([buenas,noches]).
 saludos([buenas]).
 
-% Pronombres personales que seran usados en la base de datos
+% Despedidas que puede ingresar el usuario y seran detectadas
+despedidas([gracias]).
+despedidas([chao]).
+despedidas([pura,vida]).
+despedidas([muchas,gracias]).
+despedidas([hasta,luego]).
+despedidas([adios]).
+despedidas([muy,amable]).
+
+
+%Pronombres personales que seran usados en la base de datos
 pronombres(singular,primera,[yo]).
 pronombres(singular,segunda,[usted]).
 pronombres(singular,tercera,[el]).
@@ -42,5 +52,90 @@ interrogativos([donde]).
 interrogativos([cuanto]).
 interrogativos([quien]).
 
+% Un sustantivo se utiliza para nombrar cosas, personas o animales,
+% ej:perro,lapiz, juan
+
+sustantivos(singular,masculino,[callcenterlog]).
+sustantivos(singular,femenino,[causa]).
+sustantivos(singular,femenino,[pregunta]).
+sustantivos(singular,femenino,[solucion]).
+sustantivos(singular,femenino,[referencia]).
+sustantivos(singular,masculino,[problema]).
+sustantivos(singular,femenino,[computadora]).
+sustantivos(singular,masculino,[error]).
+
+% Un verbo es una palabra con la que se pueden expresar acciones, procesos, estados, tiene tiempo, numero y persona, aqui se definen
+%los verbos que se emplearan para la base de datos
+verbos(singular,[encuentra]).
+verbos(singular,[conectada]).
+verbos(singular,[está]).
+verbos(singular,[conectado]).
+verbos(singular,[cae]).
+verbos(singular,[interrupcion]).
+verbos(singular,[puede]).
+verbos(singular,[estar]).
+verbos(singular,[bloqueando]).
+verbos(plural,[pueden]).
+verbos(singular,[tiene]).
+verbos(singular,[es]).
+verbos(singular,[conecta]).
+verbos(singular,[reviso]).
+verbos(singular,[este]).
+verbos(plural,[conectando]).
+verbos(plural,[alumbrando]).
+verbos(plural,[instalados]).
+verbos(singular,[reconoce]).
+verbos(singular,[conectarse]).
+verbos(singular,[han]).
+verbos(singular,[ocurrido]).
+verbos(singular,[noficado]).
+verbos(singular,[ha]).
+verbos(singular,[cambiado]).
+verbos(singular,[conecte]).
+verbos(singular,[proceda]).
+verbos(singular,[instalar]).
+verbos(singular,[tenga]).
+verbos(singular,[verifique]).
+verbos(singular,[conectar]).
+verbos(singular,[debe]).
+verbos(singular,[llevar]).
+verbos(singular,[cambien]).
+verbos(singular,[limpiar]).
+verbos(singular,[intentar]).
+verbos(singular,[espere]).
+verbos(plural,[reestablezcan]).
+verbos(singular,[contacte]).
+verbos(singular,[reestablezca]).
+verbos(singular,[reinstale]).
+verbos(singular,[cambio]).
+verbos(plural,[sentimos]).
 
 
+%Estos son los adjetivo que posee la base de datos
+adjetivo(singular,masculino,[electricidad]).
+adjetivo(singular,masculino,[drivers]).
+adjetivo(singular,masculino,[internet]).
+adjetivo(singular,masculino,[tinta]).
+adjetivo(singular,masculino,[cable]).
+adjetivo(singular,masculino,[componente]).
+adjetivo(singular,fememino,[sucia]).
+adjetivo(singular,masculino,[papel]).
+adjetivo(singular,masculino,[desalineado]).
+adjetivo(singular,masculino,[mensaje]).
+adjetivo(singular,masculino,[alarmas]).
+adjetivo(singular,masculino,[malo]).
+adjetivo(singular,femenino,[mala]).
+adjetivo(plural,masculino,[malos]).
+adjetivo(singular,femenino,[mala]).
+adjetivo(singular,femenino,[rota]).
+adjetivo(singular,masculino,[roto]).
+adjetivo(singular,femenino,[corrupta]).
+adjetivo(singular,femenino,[corrupto]).
+adjetivo(singular,femenino,[jodida]).
+
+%Estas son las conjuciones  que posee la base de datos
+conjucion([que]).
+
+%Estas son los adverbios  que posee la base de datos
+adverbio([de]).
+adverbio([del]).
