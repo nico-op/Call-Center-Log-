@@ -43,7 +43,7 @@ solucion(puerto_sucio, 'Debe limpiar el puerto y posteriormente intentar conecta
 solucion(sin_luz, 'Espere que el servicio de luz e internet se restablezcan.').
 solucion(sin_servicio, 'Contacte a su compañía.').
 solucion(antivirus, 'Restablezca la configuración predeterminada del antivirus o reinstale el antivirus.').
-solucion(ip_DNS, 'Si cambio la configuración, restablezca la configuración predeterminada.').
+solucion(ip_DNS, 'Si cambio la configuración, restablezca la configuración predeterminda.').
 solucion(no_responde, 'El sistema no tiene la respuesta, lo sentimos. ').
 
 
