@@ -48,6 +48,7 @@ solucion(no_responde, 'El sistema no tiene la respuesta, lo sentimos. ').
 
 
 % Soluciones basadas en el problema que el usuario indique
+
 problema(no_conectada_Wifi):- preguntas(comp_conectada_Wifi, no), !.
 
 problema(no_intalados_drivers):- preguntas(prim_vez, si),preguntas(drivers, no), !.
