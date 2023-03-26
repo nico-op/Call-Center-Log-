@@ -7,7 +7,7 @@
 
 saludos([hola]).
 saludos([buenas,tardes]).
-saludos([buenos,días]).
+saludos([buenos,dias]).
 saludos([buenas,noches]).
 saludos([buenas]).
 
@@ -93,8 +93,8 @@ sustantivos(singular,masculino,[fluido]).
 sustantivos(plural,femenino,[interrupciones]).
 sustantivos(singular,masculino,[puerto]).
 sustantivos(singular,femenino,[luz]).
-sustantivos(singular,femenino,[compañía]).
-sustantivos(singular,femenino,[configuración]).
+sustantivos(singular,femenino,[compañia]).
+sustantivos(singular,femenino,[configuracion]).
 sustantivos(singular,masculino,[sistema]).
 sustantivos(singular,femenino,[respuesta]).
 
@@ -104,7 +104,7 @@ sustantivos(singular,femenino,[respuesta]).
 
 verbos(singular,[encuentra]).
 verbos(singular,[conectada]).
-verbos(singular,[está]).
+verbos(singular,[esta]).
 verbos(singular,[conectado]).
 verbos(singular,[cae]).
 verbos(singular,[interrupcion]).
@@ -195,6 +195,53 @@ adverbios([no]).
 adverbios([si]).
 adverbios([en]).
 adverbios([al]).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
