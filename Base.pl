@@ -1,86 +1,125 @@
-%Base de datos sobre
+%Base de datos sobre una computadora que no tiene acceso a internet
+% ***********************************************************************************************************************
+% Entradas iniciales
+
+saludos([ hola,buenas, tardes, días, buenos]).
+
+gracias([gracias, muchas_gracias, okay]).
+
+dispositivos([computadora]).
+
+% ************************************************************************************************************************
 % Causas por la que la computadora no tiene acceso a internet
-causa('- Su computadora no se encuentra conectada a la red wifi.').
-causa('- El modem no funciona.').
-causa('- El cable del internet no está conectado a su computadora.').
-causa('- El cable de red está dañado.').
-causa('- Cortes de electricidad en la zona por lo que se cae el internet .').
-causa('- Interrupción del servicio en la zona').
-causa('- El antivirus puede estar bloqueando el acceso a internet').
-causa('- La dirección IP o el DNS pueden estar mal configurados.').
-causa('- No tiene instalados los drivers wifi.').
-causa('- El adaptador de red de la computadora no funciona.').
-causa('- La tarjeta de red está dañada. ').
+causas_db(computadora, [
+        ['Su computadora no se encuentra conectada a la red wifi'],%Causa1
+        ['El modem no funciona'], %Causa2
+        ['El cable del internet no está conectado a su computadora'], %Causa3
+        ['El cable de red está dañado'], %Causa5
+        ['Cortes de electricidad en la zona por lo que se cae el internet'], %Causa6
+        ['Interrupción del servicio en la zona'], %Causa7
+        ['El antivirus puede estar bloqueando el acceso a internet'], %Causa8
+        ['La dirección IP o el DNS pueden estar mal configurados'], %Causa9
+        ['No tiene instalados los drivers wifi'],%Causa10
+        ['El adaptador de red de la computadora no funciona'],%Causa11
+        ['La tarjeta de red está dañada']%Causa12
+        ]).
 
-%Preguntas que el sistema va a realizar al usuario
-pregunta(comp_conectada_Wifi, '¿Reviso que la computadora este conectada al wifi ?').
-pregunta(prim_vez, '¿Es la primera vez que conecta la computadora a internet?').
-pregunta(wifi, '¿Está conectando por wifi? ').
-pregunta(modem, '¿El modem está alumbrando?').
-pregunta(modem_red, '¿El modem está conectado al cable de red?').
-pregunta(modem_conectado, '¿El modem está conectado a la electricidad?').
-pregunta(drivers, '¿Tiene instalados los drivers wifi?').
-pregunta(cable, '¿Su computadora se encuentra conectada por cable?').
-pregunta(cable_conectado_modem, '¿El cable está conectado de manera correcta al modem?').
-pregunta(cable_conectado_pc, '¿El cable está conectado de manera correcta a la computadora?').
-pregunta(puerto, '¿La computadora reconoce el cable de red al conectarse?').
-pregunta(luz, '¿Han ocurrido cortes en el fluido electrico?').
-pregunta(servicio_zona, '¿Se han notificado interrupciones en el servicio?').
-pregunta(anti, '¿Su computadora tiene antivirus?').
-pregunta(direccion, '¿Ha cambiado la dirección IP o el DNS?').
+% ************************************************************************************************************************
+% Preguntas que el sistema va a realizar al usuario para determinar lo
+% que ocurre.
+preguntas_db(dispositivo,
+             [['¿Cuál es el dispositivo con el que tiene el problema?']]).
 
-
-% Respuestas que el sistema le da al usuario
-solucion(no_conectada_Wifi, 'Conecte la computadora a la red wifi').
-solucion(modem_desconectado, 'Conecte el modem a la electricidad.').
-solucion(no_intalados_drivers, 'Proceda a instalar los drivers de wifi en su computadora. ').
-solucion(modem_sin_cable, 'Verifique que el modem tenga conectado el cable de red.').
-solucion(cable_no_conectado_modem, 'Proceda a conectar el cable al modem de manera correcta.').
-solucion(cable_no_conectado_pc, 'Proceda a conectar el cable a su computadora de manera correcta').
-solucion(puerto_malo, 'Debe llevar su computadora a que le cambien el puerto').
-solucion(tarjeta_mala, 'Debe llevar su computadora a que le cambien la tarjeta de red').
-solucion(puerto_sucio, 'Debe limpiar el puerto y posteriormente intentar conectar el cable.').
-solucion(sin_luz, 'Espere que el servicio de luz e internet se restablezcan.').
-solucion(sin_servicio, 'Contacte a su compañía.').
-solucion(antivirus, 'Restablezca la configuración predeterminada del antivirus o reinstale el antivirus.').
-solucion(ip_DNS, 'Si cambio la configuración, restablezca la configuración predeterminada.').
-solucion(no_responde, 'El sistema no tiene la respuesta, lo sentimos. ').
+preguntas_db(computadora,
+        [['¿Reviso que la computadora este conectada al wifi?'],%Pregunta1
+        ['¿Es la primera vez que conecta la computadora a internet?'],%Pregunta2
+        ['¿Está conectando por wifi?'], %Pregunta4
+        ['¿El modem está alumbrando?'], %Pregunta5
+        ['¿El modem está conectado al cable de red?'], %Pregunta6
+        ['¿El modem está conectado a la electricidad?'], %Pregunta7
+        ['¿Tiene instalados los drivers wifi?'], %Pregunta8
+        ['¿Su computadora se encuentra conectada por cable?'], %Pregunta9
+        ['¿El cable está conectado de manera correcta al modem?'], %Pregunta10
+        ['¿El cable está conectado de manera correcta a la computadora?'],%Pregunta11
+        ['¿La computadora reconoce el cable de red al conectarse??'],%Pregunta12
+        ['¿Han ocurrido cortes en el fluido electrico?'], %Pregunta13
+        ['¿Se han notificado interrupciones en el servicio?'],%Pregunta14
+        ['¿Su computadora tiene antivirus?'],%Pregunta15
+        ['¿Ha cambiado la dirección IP o el DNS?']%Pregunta16
+        ]).
 
 
-% Soluciones basadas en el problema que el usuario indique
-problema(no_conectada_Wifi):- preguntas(comp_conectada_Wifi, no), !.
+% ****************************************************************************************************************************
+% Respuestas que brinda el sistema sobre saludos, despedidas, final de
+% la oración, respuestas aleatroias cuando no sabe la respuestas,
+% respuestas cunado no entiende lo que se le indicó.
+respuestas(saludos,
+        [['hola'], ['buenas,tardes'],['buenos, días'],
+        ['buenas, noches'], ['buenas'] ]).
 
-problema(no_intalados_drivers):- preguntas(prim_vez, si),preguntas(drivers, no), !.
+respuestas(despedida,
+        [['chao'],['pura, vida'], ['muchas, gracias'],
+        ['hasta, luego'], ['adios'],['muy amable']]).
 
-problema(modem_desconectado):- preguntas(modem, no), preguntas(modem_conectado, no), !.
+respuestas(gracias_despedida,
+        [['okay'],['muchas gracias']]).
 
-problema(modem_sin_cable):- preguntas(modem, no),preguntas(modem_red, no), !.
-
-problema(cable_no_conectado_modem):- preguntas(cable, si), preguntas(cable_conectado_modem, no), !.
-
-problema(puerto_sucio):- preguntas(cable_conectado_pc, no), preguntas(puerto, no), !.
-
-problema(puerto_malo):- preguntas(cable_conectado_pc, si), preguntas(puerto, no), !.
-
-problema(tarjeta_mala):- preguntas(wifi, si),preguntas(comp_conectada_Wifi, si), !.
-
-problema(sin_luz):- preguntas(comp_conectada_Wifi, no), preguntas(luz, no), !.
-
-problema(sin_servicio):- preguntas(cable, si), preguntas(wifi, si),preguntas(servicio_zona, si), !.
-
-problema(antivirus):- preguntas(anti, si), !.
-
-problema(ip_DNS):- preguntas(direccion, si), !.
-
-problema(no_responde).
+respuestas(con_gusto,
+        [['con gusto'],['espero haberte ayudado']]).
 
 
+respuestas(dispositivo,
+        [['¿Con qué dispositivo tiene problemas?']]).
 
+respuestas(final_oracion,
+        [['¿te puedo ayudar en algo más?']]).
 
+respuestas(respuestas_aleatorias,
+        [['sinceramente no tengo la respuesta'],
+        ['Lo siento, no puedo responder esa pregunta.']]).
 
+respuestas(incompresion,
+        [['disculpe, no entiendo lo que me preguntaste'],
+        ['disculpe, intente de nuevo']]).
 
+% ---------------------------------------------------------------------------------------------------------------
+% Respuestas con las soluciones a los problemas encontrados.
 
+respuestas(computadora, [
+        ['Conecte la computadora a la red wifi'], %Solucion1
+        ['Conecte el modem a la electricidad'], %Solucion2
+        ['Proceda a instalar los drivers de wifi en su computadora'], %Solucion3
+        ['Verifique que el modem tenga conectado el cable de red'], %Solucion4
+        ['Proceda a conectar el cable al modem de manera correcta'], %Solucion5
+        ['Proceda a conectar el cable a su computadora de manera correcta'], %Solucion6
+        ['Debe llevar su computadora a que le cambien el puerto'], %Solucion7
+        ['Debe llevar su computadora a que le cambien la tarjeta de red'], %Solucion8
+        ['Debe limpiar el puerto y posteriormente intentar conectar el cable'], %Solucion9
+        ['Espere que el servicio de luz e internet se restablezcan'], %Solucion10
+        ['Contacte a su compañía'], %Solucion11
+        ['Restablezca la configuración predeterminada del antivirus o reinstale el antivirus'], %Solucion12
+        ['Si cambio la configuración, restablezca la configuración predeterminada'] %Solucion13
+ ]).
 
+respuestas(listo,
+        [['¿En qué te puedo ayudar?'],['¿Cómo te puedo ayudar?']]).
+
+respuestas(problema,
+        [['Disculpe, no tengo solución a su problema, vuelva a intertarlo.']]).
+
+% *********************************************************************************************************************************
+% Referencias que el sistema le puede brindar al usuario para que tenga
+% una idea más clara de como solucionar el problema.
+
+referencias(computadora, [
+        ['https://eu.dlink.com/es/es/support/faq/routers/mydlink-routers/dir-880l/es_dir-880l_conectar_mi_ordenador_wi_fi_a_mi_router'], %Referencia1
+        ['https://espanol.cox.com/residential/support/connecting-a-router-and-a-modem-with-an-ethernet-cable.html'], %Referencia2
+        ['https://www.adslzone.net/como-se-hace/internet/descargar-controladores-drivers-red/'], %Referencia3
+        ['https://www.redeszone.net/tutoriales/redes-cable/ver-detalles-tarjeta-red-windows/'], %Referencia4
+        ['https://support.microsoft.com/es-es/windows/solucionar-problemas-de-conexi%C3%B3n-ethernet-en-windows-2311254e-cab8-42d6-90f3-cb0b9f63645f#:        ~:text=Abra%20Configuraci%C3%B3n%20%3E%20red%20%26%20Internet%20%3E,Ethernet%20para%20ver%20si%20funciona.'], %Referencia5
+        ['https://mundowin.com/correccion-el-antivirus-esta-bloqueando-internet-o-la-red-wi-fi/'], %Referencia6
+        ['https://www.xataka.com/basics/ethernet-no-tiene-configuracion-ip-valida-que-hacer-para-solucionar-error']%Referencia7
+         ]).
 
 
 
